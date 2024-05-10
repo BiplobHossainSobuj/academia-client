@@ -9,6 +9,7 @@ import {
 import Roots from './layout/Roots.jsx';
 import Home from './pages/home/Home.jsx';
 import ErrorPage from './pages/notFound/ErrorPage.jsx';
+import AuthProvider from './context/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

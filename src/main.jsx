@@ -10,7 +10,10 @@ import Roots from './layout/Roots.jsx';
 import Home from './pages/home/Home.jsx';
 import ErrorPage from './pages/notFound/ErrorPage.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Login from './pages/login/Login.jsx';
+import Registration from './pages/registration/Registration.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +24,14 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Registration></Registration>,
+      },
     ],
   },
 ]);
@@ -29,5 +40,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    <ToastContainer />
   </React.StrictMode>,
 )

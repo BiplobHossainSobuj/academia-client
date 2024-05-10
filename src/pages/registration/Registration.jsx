@@ -14,6 +14,7 @@ const Registration = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const photoUrl = form.photo.value;
         if (password.length<6) {
             toast('Password must be 6 characters or longer');
             return
@@ -31,7 +32,7 @@ const Registration = () => {
                 const user = res.user;
                 console.log(user);
                 updateProfile(res.user, {
-                    displayName: name,
+                    displayName: name,photoURL:photoUrl
                 })
                 toast('Registration successfull');
                 form.reset();
@@ -54,6 +55,12 @@ const Registration = () => {
                         <span className="label-text">Email</span>
                     </label>
                     <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                </div>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Photo URL</span>
+                    </label>
+                    <input type="text" name='photo' placeholder="Photo" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
                     <label className="label">

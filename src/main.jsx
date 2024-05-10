@@ -14,6 +14,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './pages/login/Login.jsx';
 import Registration from './pages/registration/Registration.jsx';
+import ProtectedRoute from './protected/ProtectedRoute.jsx';
+import AddService from './pages/addService/AddService.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Registration></Registration>,
+      },
+      {
+        path: "/addService",
+        element: <ProtectedRoute><AddService></AddService></ProtectedRoute>,
       },
     ],
   },

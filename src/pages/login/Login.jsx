@@ -14,10 +14,10 @@ const Login = () => {
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password = form.get('password');
-        console.log(email, password);
+        // console.log(email, password);
         login(email, password)
             .then((res) => {
-                console.log(res.user);
+                // console.log(res.user);
                 toast('Log in successful');
                 navigate(location?.state ? location.state : '/');
             })

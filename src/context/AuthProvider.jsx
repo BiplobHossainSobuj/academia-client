@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loader, setLoader] = useState(true);
 
-    const createUser = (name,email,password)=>{
+    const createUser = (name,email,password,photoURL)=>{
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const login =(email,password)=>{
@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
         const unsubcribe = onAuthStateChanged(auth,(currentUser)=>{
             setUser(currentUser);
             setLoader(false);
-            console.log('observer',currentUser);
+            // console.log('observer',currentUser);
         })
         return ()=>unsubcribe();
     },[])

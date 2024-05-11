@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaLocationDot } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
@@ -19,8 +20,8 @@ const ServiceCard = ({ service }) => {
                             <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
                         </div>
                         <div className="badge badge-info gap-2 justify-end">
-
-                            5% OFF
+                        <FaLocationDot />
+                        <span>{serviceArea}</span>
                         </div>
                     </div>
 

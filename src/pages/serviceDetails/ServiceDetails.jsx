@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaLocationDot } from 'react-icons/fa6';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { Link, useLoaderData } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ const ServiceDetails = () => {
     const { serviceName, serviceImage, serviceArea, description, servicePrice, providerName, providerImg, _id } = loadedService;
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen my-10">
                 <div className="hero-content flex-col lg:flex-row">
                     <img src={serviceImage} className="w-2/3 rounded-lg shadow-2xl" />
                     <div className='bg-slate-200 w-full rounded-lg'>
@@ -21,7 +22,8 @@ const ServiceDetails = () => {
                                     <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
                                 </div>
                                 <div className="badge badge-info gap-2 justify-end">
-                                    5% OFF
+                                <FaLocationDot />
+                                <span>{serviceArea}</span>
                                 </div>
                             </div>
                             <p className='text-5xl font-bold text-warning'>${servicePrice}</p>
@@ -39,7 +41,7 @@ const ServiceDetails = () => {
                                     <p>{providerName}</p>
                                 </div>
                             </div>
-                            <Link to={`/services/${_id}`}><button className="btn btn-outline btn-info btn-block text-white font-bold">Book Now</button></Link>
+                            <Link to={`/checkout/${_id}`}><button className="btn btn-success btn-block text-white font-bold">Book Now</button></Link>
                         </div>
 
                         <div className=''>

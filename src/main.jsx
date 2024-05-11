@@ -17,6 +17,7 @@ import Registration from './pages/registration/Registration.jsx';
 import ProtectedRoute from './protected/ProtectedRoute.jsx';
 import AddService from './pages/addService/AddService.jsx';
 import Services from './pages/services/Services.jsx';
+import ServiceDetails from './pages/serviceDetails/ServiceDetails.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
+      },
+      {
+        path: "/services/:id",
+        element: <ProtectedRoute><ServiceDetails></ServiceDetails></ProtectedRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
       },
       {
         path: "/addService",

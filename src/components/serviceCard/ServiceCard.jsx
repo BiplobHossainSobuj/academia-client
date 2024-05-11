@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
-    const { serviceName, serviceImage, serviceArea, description, servicePrice, providerName, providerImg } = service;
+    const { serviceName, serviceImage, serviceArea, description, servicePrice, providerName, providerImg ,_id} = service;
     return (
         <div className='max-w-lg'>
             <div className="card">
-                <figure><img className="rounded-xl" src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <figure><img className="rounded-xl" src={serviceImage} alt="Shoes" /></figure>
             </div>
             <div className="card  shadow-md bg-white mt-2">
                 <div className="card-body">
@@ -37,7 +38,7 @@ const ServiceCard = ({ service }) => {
                             </div>
                             <p>{providerName}</p>
                         </div>
-                        <button className="btn btn-primary justify-end">View Details</button>
+                        <Link to={`/services/${_id}`}><button className="btn btn-outline btn-info justify-end">View Details</button></Link>
                     </div>
                 </div>
             </div>

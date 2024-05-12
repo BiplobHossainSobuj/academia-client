@@ -19,6 +19,7 @@ import AddService from './pages/addService/AddService.jsx';
 import Services from './pages/services/Services.jsx';
 import ServiceDetails from './pages/serviceDetails/ServiceDetails.jsx';
 import Checkout from './pages/checkout/Checkout.jsx';
+import ManageService from './pages/manageService/ManageService.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/addService",
         element: <ProtectedRoute><AddService></AddService></ProtectedRoute>,
+      },
+      {
+        path: "/manageService",
+        element: <ProtectedRoute><ManageService></ManageService></ProtectedRoute>,
       },
       {
         path: "/checkout/:id",

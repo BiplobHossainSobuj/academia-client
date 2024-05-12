@@ -6,7 +6,7 @@ const Header = () => {
     const { user,logOut } = useContext(AuthContext);
     const links = <>
         <li><Link to='/addService'>Add Service</Link></li>
-        <li><Link to='/'>Manage Service</Link></li>
+        <li><Link to='/manageService'>Manage Service</Link></li>
         <li><Link to='/'>Booked Services</Link></li>
         <li><Link to='/'>Service To-Do</Link></li>
     </>
@@ -50,7 +50,7 @@ const Header = () => {
                         <li>
                             {user && <details>
                                 <summary>Dashboard</summary>
-                                <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-40">
+                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-40">
                                     {links}
                                 </ul>
                             </details>}

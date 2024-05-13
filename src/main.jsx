@@ -21,6 +21,7 @@ import ServiceDetails from './pages/serviceDetails/ServiceDetails.jsx';
 import Checkout from './pages/checkout/Checkout.jsx';
 import ManageService from './pages/manageService/ManageService.jsx';
 import UpdateService from './pages/updateService/UpdateService.jsx';
+import BookedServices from './pages/bookedService/BookedServices.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
         path: "/checkout/:id",
         element: <ProtectedRoute><Checkout></Checkout></ProtectedRoute>,
         loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+      },
+      {
+        path: "/bookedService",
+        element: <ProtectedRoute><BookedServices></BookedServices></ProtectedRoute>,
       },
     ],
   },

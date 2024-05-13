@@ -7,7 +7,7 @@ const Header = () => {
     const links = <>
         <li><Link to='/addService'>Add Service</Link></li>
         <li><Link to='/manageService'>Manage Service</Link></li>
-        <li><Link to='/'>Booked Services</Link></li>
+        <li><Link to='/bookedService'>Booked Services</Link></li>
         <li><Link to='/'>Service To-Do</Link></li>
     </>
     const handleLogout = () => {

@@ -22,6 +22,7 @@ import Checkout from './pages/checkout/Checkout.jsx';
 import ManageService from './pages/manageService/ManageService.jsx';
 import UpdateService from './pages/updateService/UpdateService.jsx';
 import BookedServices from './pages/bookedService/BookedServices.jsx';
+import ServiceToDo from './pages/serviceToDo/ServiceToDo.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: "/bookedService",
         element: <ProtectedRoute><BookedServices></BookedServices></ProtectedRoute>,
+      },
+      {
+        path: "/serviceToDo",
+        element: <ProtectedRoute><ServiceToDo></ServiceToDo></ProtectedRoute>,
       },
     ],
   },

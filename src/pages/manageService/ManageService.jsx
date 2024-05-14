@@ -8,7 +8,7 @@ const ManageService = () => {
 
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/manageServices?email=${user?.email}`)
+        fetch(`http://localhost:5000/manageServices?email=${user?.email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => setServices(data))
     }, [user])

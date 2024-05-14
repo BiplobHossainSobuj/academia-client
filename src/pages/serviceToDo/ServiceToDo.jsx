@@ -7,7 +7,7 @@ const ServiceToDo = () => {
     const [services, setServices] = useState([]);
     const [serviceStatus, setServiceStatus] = useState('');
     useEffect(() => {
-        fetch(`http://localhost:5000/serviceToDo?email=${user?.email}`)
+        fetch(`http://localhost:5000/serviceToDo?email=${user?.email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => {
                 console.log(data);

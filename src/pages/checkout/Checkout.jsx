@@ -15,7 +15,7 @@ const Checkout = () => {
         const specialInstruction = form.instruction.value;
         const takingDate = form.takingDate.value;
         const purchaseDetails = {serviceId:_id,serviceName,serviceImage,servicePrice,providerEmail,providerName,userEmail:user.email,userName:user.displayName,takingDate,specialInstruction,status:'pending'}
-        fetch('http://localhost:5000/servicePurchased', {
+        fetch('http://localhost:5000/servicePurchased',{credentials:'include'}, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

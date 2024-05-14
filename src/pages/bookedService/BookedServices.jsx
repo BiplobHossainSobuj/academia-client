@@ -6,7 +6,7 @@ const BookedServices = () => {
     const [services, setServices] = useState([]);
     const { user } = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:5000/servicePurchased?email=${user?.email}`)
+        fetch(`http://localhost:5000/servicePurchased?email=${user?.email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -31,7 +31,7 @@ const BookedServices = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {services.map(service =>
+                        {services && services.map(service =>
                             <tr key={service._id}>
                                 <td>
                                     {service.providerName}

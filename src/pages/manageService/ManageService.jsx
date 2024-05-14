@@ -45,7 +45,7 @@ const ManageService = () => {
 
     }
     return (
-        <div>
+        <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 my-10'>
             {
                 services.map(service => <ServiceManagedCard key={service._id} handleDelete={handleDelete} service={service}></ServiceManagedCard>)
             }

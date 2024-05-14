@@ -30,7 +30,6 @@ const Services = () => {
 
     return (
         <div className='max-w-7xl mx-auto my-12'>
-            <div>All services</div>
             <div className="flex justify-center my-6">
                 <div className='w-2/3 bg-red-400 p-4 rounded-lg'>
                     <label className="input input-bordered flex items-center gap-2">
@@ -39,7 +38,7 @@ const Services = () => {
                     </label>
                 </div>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center'>
                 {searchKey ?
                     filtered.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
                     : services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)}

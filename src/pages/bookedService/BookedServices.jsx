@@ -23,8 +23,8 @@ const BookedServices = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>Service Info</th>
                             <th>Provider Info</th>
+                            <th>Service Info</th>
                             <th>Booking Date</th>
                             <th>Status</th>
                             <th></th>
@@ -34,20 +34,20 @@ const BookedServices = () => {
                         {services.map(service =>
                             <tr key={service._id}>
                                 <td>
-                                    {service.serviceName}
+                                    {service.providerName}
                                     <br />
-                                    <span className="badge badge-warning badge-lg">${service.servicePrice}</span>
+                                    <span className='opacity-50'>{service.providerEmail}</span>
                                 </td>
                                 <td>
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
-                                                <img src="https://img.daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                                <img src={service.serviceImage} />
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="font-bold">{service.providerName}</div>
-                                            <div className="text-sm opacity-50">{service.providerEmail}</div>
+                                            <div className="font-bold">{service.serviceName}</div>
+                                            <div className="text-sm badge badge-warning badge-lg">${service.servicePrice}</div>
                                         </div>
                                     </div>
                                 </td>

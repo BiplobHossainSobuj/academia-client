@@ -3,6 +3,9 @@ import Banner from "../../components/Banner/Banner";
 import Services from "../services/Services";
 import { useState } from "react";
 import ServiceCard from "../../components/serviceCard/ServiceCard";
+import Resources from "../../components/ourResource/Resources";
+import ExamHelp from "../../components/ExamHelp/ExamHelp";
+import ServiceRequest from "../../components/serviceRequest/ServiceRequest";
 
 const Home = () => {
     const loadedServices = useLoaderData();
@@ -39,6 +42,19 @@ const Home = () => {
 
                 <Link to={`/services`}><button className="btn btn-outline btn-warning">Show More</button></Link>
             </div>
+            <div>
+                <ExamHelp></ExamHelp>
+            </div>
+            <div className="w-full">
+                <Resources></Resources>
+            </div>
+            <div className="bg-gray-200 p-6 rounded-lg">
+               <h1 className="text-center text-red-500 text text-5xl font-bold">Request for New Service</h1>
+               <div>
+                <ServiceRequest></ServiceRequest>
+               </div>
+            </div>
+            
         </div>
     );
 };

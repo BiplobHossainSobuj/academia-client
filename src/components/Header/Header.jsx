@@ -41,7 +41,7 @@ const Header = () => {
                             }
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost text-xl">Academia</Link>
+                    <Link to='/' className="btn btn-ghost text-xl"><span className='h-10 w-10'><img src="vite.png" alt="" /></span> Academia</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

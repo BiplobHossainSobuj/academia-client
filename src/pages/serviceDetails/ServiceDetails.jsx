@@ -15,7 +15,7 @@ const ServiceDetails = () => {
             </Helmet>
             <div className="hero min-h-screen my-10">
                 <div className="hero-content flex-col lg:flex-row">
-                    <img src={serviceImage} className="w-2/3 rounded-lg shadow-2xl" />
+                    <img src={serviceImage} className="w-full md:w-2/3 rounded-lg shadow-2xl" />
                     <div className='bg-slate-200 w-full rounded-lg'>
                         <div className="card-body">
                             <div className='flex justify-between'>

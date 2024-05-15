@@ -46,7 +46,7 @@ const ManageService = () => {
 
     }
     return (
-        <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 my-10'>
+        <div className='max-w-7xl mx-auto place-items-center grid grid-cols-1 md:grid-cols-2 gap-6 my-10'>
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Manage your services</title>

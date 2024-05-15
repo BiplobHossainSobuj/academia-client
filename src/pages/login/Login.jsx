@@ -51,7 +51,7 @@ const Login = () => {
                 <meta charSet="utf-8" />
                 <title>Login</title>
             </Helmet>
-            <div className="w-1/3 bg-base-100 rounded-lg">
+            <div className="w-full md:w-1/3 bg-base-100 rounded-lg">
                 <div className='text-center my-10 text-5xl text-blue-500'>
                     Please Login!
                 </div>

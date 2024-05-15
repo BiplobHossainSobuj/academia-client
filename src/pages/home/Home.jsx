@@ -6,7 +6,7 @@ import ServiceCard from "../../components/serviceCard/ServiceCard";
 import Resources from "../../components/ourResource/Resources";
 import ExamHelp from "../../components/ExamHelp/ExamHelp";
 import ServiceRequest from "../../components/serviceRequest/ServiceRequest";
-
+import { Helmet } from "react-helmet";
 const Home = () => {
     const loadedServices = useLoaderData();
     const [services, setServices] = useState(loadedServices);
@@ -26,6 +26,10 @@ const Home = () => {
     handleChange();
     return (
         <div className='max-w-7xl mx-auto my-24'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Academia</title>
+            </Helmet>
             <Banner></Banner>
             <div className=' bg-red-400 p-4 rounded-lg my-4'>
                 <label className="input input-bordered flex items-center gap-2">
@@ -36,7 +40,7 @@ const Home = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center'>
                 {searchKey ?
                     filtered.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
-                    :services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)}
+                    : services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)}
             </div>
             <div className="flex justify-center my-6">
 
@@ -49,12 +53,11 @@ const Home = () => {
                 <Resources></Resources>
             </div>
             <div className="bg-gray-200 p-6 rounded-lg">
-               <h1 className="text-center text-red-500 text text-5xl font-bold">Request for New Service</h1>
-               <div>
-                <ServiceRequest></ServiceRequest>
-               </div>
+                <h1 className="text-center text-red-500 text text-5xl font-bold">Request for New Service</h1>
+                <div>
+                    <ServiceRequest></ServiceRequest>
+                </div>
             </div>
-            
         </div>
     );
 };

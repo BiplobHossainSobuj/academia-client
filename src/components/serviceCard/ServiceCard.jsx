@@ -9,7 +9,7 @@ const ServiceCard = ({ service }) => {
             <div className="card">
                 <figure><img className="rounded-xl" src={serviceImage} alt="Shoes" /></figure>
             </div>
-            <div className="card  shadow-md bg-white mt-2">
+            <div className="card hover:bg-blue-500 shadow-md bg-white mt-2">
                 <div className="card-body">
                     <div className='flex justify-between'>
                         <div className="rating rating-sm">

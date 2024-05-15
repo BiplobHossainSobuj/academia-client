@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader:()=>fetch('http://localhost:5000/services')
+        loader:()=>fetch('https://academia-server-sandy.vercel.app/services')
       },
       {
         path: "/login",
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       {
         path: "/services/:id",
         element: <ProtectedRoute><ServiceDetails></ServiceDetails></ProtectedRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+        loader:({params})=>fetch(`https://academia-server-sandy.vercel.app/services/${params.id}`)
       },
       {
         path: "/addService",
@@ -62,12 +62,12 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <ProtectedRoute><UpdateService></UpdateService></ProtectedRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+        loader:({params})=>fetch(`https://academia-server-sandy.vercel.app/services/${params.id}`)
       },
       {
         path: "/checkout/:id",
         element: <ProtectedRoute><Checkout></Checkout></ProtectedRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+        loader:({params})=>fetch(`https://academia-server-sandy.vercel.app/services/${params.id}`)
       },
       {
         path: "/bookedService",

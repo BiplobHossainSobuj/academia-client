@@ -3,6 +3,7 @@ import { FaImage, FaLocationDot, FaMoneyCheckDollar, FaServicestack } from 'reac
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const Checkout = () => {
     const loadedService = useLoaderData();
@@ -15,7 +16,7 @@ const Checkout = () => {
         const specialInstruction = form.instruction.value;
         const takingDate = form.takingDate.value;
         const purchaseDetails = {serviceId:_id,serviceName,serviceImage,servicePrice,providerEmail,providerName,userEmail:user.email,userName:user.displayName,takingDate,specialInstruction,status:'pending'}
-        fetch('http://localhost:5000/servicePurchased',{credentials:'include'}, {
+        fetch('https://academia-server-sandy.vercel.app/servicePurchased', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -30,6 +31,10 @@ const Checkout = () => {
     }
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Checkout</title>
+            </Helmet>
             <form className="m-2" onSubmit={handlePurchase}>
                 <div className='w-full md:w-3/4 mx-auto md:flex lg:flex justify-between gap-6'>
                     <div className='grow space-y-4'>

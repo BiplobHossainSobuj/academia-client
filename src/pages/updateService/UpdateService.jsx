@@ -4,6 +4,7 @@ import { FaLocationDot, FaMoneyCheckDollar } from 'react-icons/fa6';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const UpdateService = () => {
     const loadedService = useLoaderData();
@@ -20,7 +21,7 @@ const UpdateService = () => {
         const servicePrice = form.servicePrice.value;
         const serviceDetails = { serviceName,serviceImage,serviceArea,description,servicePrice,providerEmail:email,providerName:displayName,providerImg:photoURL };
         console.log(serviceDetails);
-        fetch(`http://localhost:5000/services/${_id}`, {
+        fetch(`https://academia-server-sandy.vercel.app/services/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -35,6 +36,10 @@ const UpdateService = () => {
     }
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Update services</title>
+            </Helmet>
             <form className="m-2" onSubmit={handleUpdate}>
                 <div className='w-full md:w-3/4 mx-auto md:flex lg:flex justify-between gap-6'>
                     <div className='grow space-y-4'>

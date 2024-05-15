@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from "../../context/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Registration = () => {
     const {createUser} = useContext(AuthContext);
@@ -43,6 +44,10 @@ const Registration = () => {
     }
     return (
         <div className=" max-w-lg mx-auto bg-base-200">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Register</title>
+            </Helmet>
             <form onSubmit={handleRegister} className="card-body">
                 <div className="form-control">
                     <label className="label">

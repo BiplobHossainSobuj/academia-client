@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
+import { Helmet } from 'react-helmet';
 // import ServiceRow from './serviceRow';
 
 const ServiceToDo = () => {
@@ -7,7 +8,7 @@ const ServiceToDo = () => {
     const [services, setServices] = useState([]);
     const [serviceStatus, setServiceStatus] = useState('');
     useEffect(() => {
-        fetch(`http://localhost:5000/serviceToDo?email=${user?.email}`,{credentials:'include'})
+        fetch(`https://academia-server-sandy.vercel.app/serviceToDo?email=${user?.email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -22,7 +23,7 @@ const ServiceToDo = () => {
     const handleStatusChange = (id) => {
         console.log(id, serviceStatus);
         const currentService = { id, serviceStatus }
-        fetch(`http://localhost:5000/serviceToDo/${id}`, {
+        fetch(`https://academia-server-sandy.vercel.app/serviceToDo/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
@@ -38,6 +39,10 @@ const ServiceToDo = () => {
 
     return (
         <div className='mx-auto max-w-7xl'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Service To DO</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

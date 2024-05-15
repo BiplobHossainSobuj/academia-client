@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from '../../components/serviceCard/ServiceCard';
+import { Helmet } from 'react-helmet';
 
 const Services = () => {
     const [services, setServices] = useState([]);
     const [searchKey, setSearchKey] = useState('');
     let filtered = [];
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://academia-server-sandy.vercel.app/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data)
@@ -30,6 +31,10 @@ const Services = () => {
 
     return (
         <div className='max-w-7xl mx-auto my-12'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>All Services</title>
+            </Helmet>
             <div className="flex justify-center my-6">
                 <div className='w-2/3 bg-red-400 p-4 rounded-lg'>
                     <label className="input input-bordered flex items-center gap-2">

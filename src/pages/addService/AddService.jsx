@@ -3,7 +3,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import { toast } from 'react-toastify';
 import { FaImage, FaServicestack } from 'react-icons/fa';
 import { FaLocationDot, FaMoneyCheckDollar } from 'react-icons/fa6';
-
+import {Helmet} from "react-helmet";
 const AddService = () => {
     const {user} = useContext(AuthContext);
     const {email,photoURL,displayName} = user;
@@ -17,7 +17,7 @@ const AddService = () => {
         const servicePrice = form.servicePrice.value;
         const serviceDetails = { serviceName,serviceImage,serviceArea,description,servicePrice,providerEmail:email,providerName:displayName,providerImg:photoURL };
         console.log(serviceDetails);
-        fetch('http://localhost:5000/services', {
+        fetch('https://academia-server-sandy.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -32,6 +32,10 @@ const AddService = () => {
     }
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Add services</title>
+            </Helmet>
             <form className="m-2" onSubmit={handleSubmit}>
                 <div className='w-full md:w-3/4 mx-auto md:flex lg:flex justify-between gap-6'>
                     <div className='grow space-y-4'>

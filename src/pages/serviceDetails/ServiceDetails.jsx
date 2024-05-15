@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { FaLocationDot } from 'react-icons/fa6';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -8,6 +9,10 @@ const ServiceDetails = () => {
     const { serviceName, serviceImage, serviceArea, description, servicePrice, providerName, providerImg, _id } = loadedService;
     return (
         <div>
+            <Helmet> 
+                <meta charSet="utf-8" />
+                <title>Service Details</title>
+            </Helmet>
             <div className="hero min-h-screen my-10">
                 <div className="hero-content flex-col lg:flex-row">
                     <img src={serviceImage} className="w-2/3 rounded-lg shadow-2xl" />

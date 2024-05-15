@@ -1,23 +1,28 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import NoServiceBooked from './NoServiceBooked';
+import { Helmet } from 'react-helmet';
 
 const BookedServices = () => {
     const [services, setServices] = useState([]);
     const { user } = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:5000/servicePurchased?email=${user?.email}`,{credentials:'include'})
+        fetch(`https://academia-server-sandy.vercel.app/servicePurchased?email=${user?.email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 setServices(data);
             })
     }, [user])
-    if (services.length == 0) {
-        return <NoServiceBooked></NoServiceBooked>
-    }
+    // if (services.length == 0) {
+    //     return <NoServiceBooked></NoServiceBooked>
+    // }
     return (
         <div className='mx-auto max-w-7xl'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Booked Services</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -31,7 +36,7 @@ const BookedServices = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {services && services.map(service =>
+                        {services ? services.map(service =>
                             <tr key={service._id}>
                                 <td>
                                     {service.providerName}
@@ -56,7 +61,7 @@ const BookedServices = () => {
                                     <button className="btn btn-ghost btn-xs">{service.status}</button>
                                 </th>
                             </tr>
-                        )}
+                        ):<NoServiceBooked></NoServiceBooked>}
                     </tbody>
 
                 </table>

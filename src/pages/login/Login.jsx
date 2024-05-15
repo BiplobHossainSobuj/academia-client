@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ const Login = () => {
                 toast('Log in successful');
                 const loggedInUser = res.user;
                 const user = {email:loggedInUser.email}
-                axios.post('http://localhost:5000/jwt', user)
+                axios.post('https://academia-server-sandy.vercel.app/jwt', user)
                     .then(res => {
                         console.log(res.data)
                         navigate(location?.state ? location.state : '/');
@@ -46,6 +47,10 @@ const Login = () => {
     }
     return (
         <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://img.freepik.com/free-vector/abstract-geometric-wireframe-background_52683-59421.jpg?t=st=1715316378~exp=1715319978~hmac=0b7223e9eb5ff6715bc7d6eb9a34cb5c6cf6f2bcf7ae7aed7eb8721e9eae00d7&w=1380)' }}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Login</title>
+            </Helmet>
             <div className="w-1/3 bg-base-100 rounded-lg">
                 <div className='text-center my-10 text-5xl text-blue-500'>
                     Please Login!

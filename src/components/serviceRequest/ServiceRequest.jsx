@@ -13,7 +13,7 @@ const ServiceRequest = () => {
         const description = form.description.value;
         const serviceDetails = { serviceName,serviceArea,description,user_email,user_name};
         console.log(serviceDetails);
-        fetch('http://localhost:5000/requestedServices', {
+        fetch('https://academia-server-sandy.vercel.app/requestedServices', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
